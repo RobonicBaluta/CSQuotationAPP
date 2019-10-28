@@ -21,7 +21,7 @@ export class AuthService {
   ) { }
   login(email: String, password: String) {
     return this.http.post(this.env.API_URL + '/Account/Login',
-      {username: email +'lisandruandy@gmail.com', password: password+'Start1234!'}
+      {username: email , password: password}
     ).pipe(
       tap(token => {
         this.storage.set('token', token['accessToken'])
