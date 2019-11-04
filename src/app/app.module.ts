@@ -10,12 +10,15 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { InterceptorService } from './services/interceptor.service';
+import { ModalPagePageModule } from './modal-page/modal-page.module';
+
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, FormsModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule,
     IonicStorageModule.forRoot(),],
+  exports: [ModalPagePageModule],
   providers: [
     StatusBar,
     SplashScreen,
