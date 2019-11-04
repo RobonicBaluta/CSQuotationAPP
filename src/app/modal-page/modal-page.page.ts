@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-modal-page',
   templateUrl: './modal-page.page.html',
@@ -16,4 +15,4 @@ export class ModalPagePage implements OnInit {
       component: ModalPagePage,
     });
   }
-}
+  }
