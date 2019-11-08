@@ -14,23 +14,23 @@ export class LoginPage implements OnInit {
     private authService: AuthService,
     private navCtrl: NavController,
     private alertService: AlertService
-  ) { }
-  ngOnInit() {
-  }
-  
-  
-  login(form: NgForm) {
-    this.authService.login(form.value.email, form.value.password).subscribe(
-      data => {
-        this.alertService.presentToast("Logged In");
-      },
-      error => {
-         console.log(error);
-       },
-      () => {
-        
-        this.navCtrl.navigateRoot('/home');
+    ) { }
+    ngOnInit() {
+    }
+    
+    
+    login(form: NgForm) {
+      this.authService.login(form.value.email, form.value.password).subscribe(
+        data => {
+          this.alertService.presentToast("Logged In");
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          
+          this.navCtrl.navigateRoot('/home');
+        }
+        );
       }
-    );
-  }
-}
+    }

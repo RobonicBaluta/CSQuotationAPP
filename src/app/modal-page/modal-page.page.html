@@ -1,0 +1,163 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>New Quotation</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+      <div class="printable-content">
+          <div class="printable-area" id="printable-area">
+      <ion-toolbar color="light" >
+          <ion-segment color="primary" [(ngModel)]="companyTab">
+            <ion-segment-button value="customerInfo" mode='ios'>
+              Customer
+            </ion-segment-button>
+            <ion-segment-button value="itemInfo" mode='ios'>
+              Item
+            </ion-segment-button>
+            <ion-segment-button value="priceInfo" mode='ios'>
+              Price
+              </ion-segment-button>
+              <ion-segment-button value="quotationInfo" mode='ios'>
+              Quotation
+                </ion-segment-button>
+          </ion-segment>
+        </ion-toolbar>
+        <div [ngSwitch]="companyTab">
+            <div *ngSwitchCase="'companyInfo'" checked > 
+        
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size-sm="6" offset-sm="3">
+                            <ion-segment (ionChange)="segmentChanged($event)">
+                              </ion-segment>
+                            </ion-col>
+                          </ion-row>
+                        </ion-grid>  
+          </div>
+            <div *ngSwitchCase="'customerInfo'" checked > 
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size-sm="6" offset-sm="3">
+                            <ion-segment (ionChange)="segmentChanged($event)">
+                              </ion-segment>
+                              
+                              <ion-item>
+                                <ion-label position="floating">Customer Name</ion-label>
+                                <ion-input></ion-input>
+                              </ion-item>
+                              <ion-item>
+                                <ion-label position="floating">Country</ion-label>
+                                <ion-input></ion-input>
+                              </ion-item>
+                            
+                              <ion-item>
+                                <ion-label position="floating">City</ion-label>
+                                <ion-input></ion-input>
+                              </ion-item>
+                              <ion-item>
+                                  <ion-label position="floating">VTA</ion-label>
+                                  <ion-input></ion-input>
+                                </ion-item>
+                              <ion-item>
+                                <ion-label position="floating">Address</ion-label>
+                                <ion-input></ion-input>
+                              </ion-item>
+                              <ion-item>
+                                <ion-label position="floating">Postal</ion-label>
+                                <ion-input></ion-input>
+                              </ion-item>
+                            </ion-col>
+                          </ion-row>
+                        </ion-grid>  
+                      </div>
+                      <div *ngSwitchCase="'itemInfo'" checked > 
+                          <ion-grid>
+                              <ion-row>
+                                  <ion-col size-sm="6" offset-sm="3">
+                                      <ion-segment (ionChange)="segmentChanged($event)">
+                                        </ion-segment>
+                                        <ion-item>
+                                          <ion-label position="floating">Item Code</ion-label>
+                                          <ion-input></ion-input>
+                                        </ion-item>
+                                        <ion-item>
+                                            <ion-label position="floating">Item VTA</ion-label>
+                                            <ion-input></ion-input>
+                                          </ion-item>
+                                        <ion-item>
+                                          <ion-label position="floating">Description</ion-label>
+                                          <ion-input></ion-input>
+                                        </ion-item>
+                                        <ion-item>
+                                          <ion-label position="floating">Quanitity</ion-label>
+                                          <ion-input></ion-input>
+                                        </ion-item>
+                                        <ion-item>
+                                          <ion-label position="floating">Item Price</ion-label>
+                                          <ion-input></ion-input>
+                                        </ion-item>
+                                      </ion-col>
+                                    </ion-row>
+                                  </ion-grid>  
+                                </div>
+                                  <div *ngSwitchCase="'priceInfo'" checked > 
+                                      <ion-grid>
+                                          <ion-row>
+                                              <ion-col size-sm="6" offset-sm="3">
+                                                  <ion-segment (ionChange)="segmentChanged($event)">
+                                                    </ion-segment>
+                                                    
+                                                    <ion-item>
+                                                      <ion-label position="floating">Subtotal Price</ion-label>
+                                                      <ion-input></ion-input>
+                                                    </ion-item>
+                                                    <ion-item>
+                                                      <ion-label position="floating">Quotation Price</ion-label>
+                                                      <ion-input></ion-input>
+                                                    </ion-item>
+                                                  
+                                                    <ion-item>
+                                                      <ion-label position="floating">TAX</ion-label>
+                                                      <ion-input></ion-input>
+                                                    </ion-item>
+                                                    <ion-item>
+                                                      <ion-label position="floating">TAX Value</ion-label>
+                                                      <ion-input></ion-input>
+                                                    </ion-item>
+                                                    <ion-item>
+                                                      <ion-label position="floating">Total Price</ion-label>
+                                                      <ion-input></ion-input>
+                                                    </ion-item>
+                                                  </ion-col>
+                                                </ion-row>
+                                              </ion-grid>  
+                                            </div>
+                                  <div *ngSwitchCase="'quotationInfo'" checked > 
+                    
+                                      <ion-grid>
+                                          <ion-row>
+                                              <ion-col size-sm="6" offset-sm="3">
+                                                  <ion-segment (ionChange)="segmentChanged($event)">
+                                                    </ion-segment>
+                                                    
+                                                    <ion-item>
+                                                        <ion-label position="stacked">Quotation Starting Date</ion-label>
+                                                      <ion-input type="date"></ion-input>
+                                                    </ion-item>
+                                                    <ion-item>
+                                                        <ion-label position="stacked">Quotation Expiring Date</ion-label>
+                                                      <ion-input type="date"></ion-input>
+                                                    </ion-item>
+                                                  </ion-col>
+                                                  <ion-fab vertical="bottom" horizontal="end">
+                                                      <ion-fab-button (click)="exportPdf()">
+                                                          <ion-icon name="md-send"></ion-icon>
+                                                  </ion-fab-button>
+                                                </ion-fab>
+                                                </ion-row>
+                                              </ion-grid>  
+               </div>
+           </div>
+           </div>
+      </div>
+  </ion-content>
