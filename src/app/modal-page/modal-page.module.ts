@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { Routes, RouterModule } from '@angular/router';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { Routes, RouterModule, RouteReuseStrategy } from '@angular/router';
 import { ModalPagePage } from './modal-page.page';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { AppComponent } from '../app.component';
 
 const routes: Routes = [
   {
@@ -13,6 +17,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
+
   imports: [
     CommonModule,
     FormsModule,
@@ -20,6 +25,15 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ModalPagePage]
+  entryComponents: [
+    ModalPagePage,
+],
+  declarations: [ModalPagePage],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    FileOpener,
+   
+  ],
 })
 export class ModalPagePageModule {}
